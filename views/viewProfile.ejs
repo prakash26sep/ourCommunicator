@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Profile Navigator</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   
+        <link rel="stylesheet" type="text/css" href="/style.css"> 
+        
+        <style>
+                body{
+                    text-align: center;
+                }
+                .container{
+                    font-size: 24;
+                }
+                .footer{
+                    position: fixed;
+                }
+
+            </style>
+
+    </head>
+
+    <body>
+
+            <div class="header">
+
+                    <a href="#default" class="logo">Our Communicator</a>
+                    <div class="header-right">
+                      <a class="active" href="/home">Main</a>
+                      <a href="/chat">Chat</a>
+                      <a href="/myPosts">My Posts</a>
+                      <a href="/contact">Contact</a>
+                      <a id="logout" href="/logout">Logout</a>
+                    </div>
+            </div>
+
+
+            <div class="container">
+
+                <h1>Details of the User</h1><br><br>
+                  
+                      <div class="panel panel-primary">
+                        <div class="panel-heading">User's Email ID</div>
+                        <div class="panel-body"><div> <%= emailId%></div></div>
+                      </div>
+                  
+                      <div class="panel panel-success">
+                        <div class="panel-heading">User's Name</div>
+                        <div class="panel-body"><div><%= name%></div></div>
+                      </div>
+                  
+                      <div class="panel panel-info">
+                        <div class="panel-heading">User's Phone number</div>
+                        <div class="panel-body"><div><%= phone%></div></div>
+                      </div>
+                  
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">User's Registrationn ID</div>
+                        <div class="panel-body"><%= id%></div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+        
+        
+        
+
+        <div class="footer">
+                <p>Copyrights reserved </p>
+              </div>
+
+    </body>
+
+</html>

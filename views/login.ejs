@@ -1,0 +1,80 @@
+<html> 
+<head> 
+    <title> Login Form</title> 
+          
+<link rel="stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity= "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous"> 
+          
+          
+<link rel="stylesheet" type="text/css" href="style.css"> 
+
+<style>
+        body{
+            text-align: center;
+        }
+        .container{
+            font-size: 24;
+        }
+        .footer{
+            position: fixed;
+        }
+
+    </style>
+          
+</head> 
+<body> 
+
+        <div class="header">
+
+                <a href="#default" class="logo">Our Communicator</a>
+                <div class="header-right">
+                  <a  href="/">Home</a>
+                  <a href="/contact">Contact</a>
+                  <a href="/signup">Register</a>
+                  <a class="active" href="/login">Login</a>
+                </div>
+        </div>
+      
+    <br> 
+
+
+    <h3 style="color: forestgreen"><%= message%></h3><h3 style="color: red"><%= error%></h3><br/>
+    <div class="container" > 
+        <div class="row"> 
+        <div class="col-md-3"> 
+                      
+        </div> 
+                  
+        <div class="col-md-6 main" style="background-color:rgb(50, 197, 197)"> <br/>
+                      
+            <form action="/log_in" method="post"> 
+                      
+            <h1> Login Form </h1> 
+                              
+
+                              
+            <input class="box" type="email" name="email" id="email" 
+            placeholder="E-Mail " required /><br> 
+                              
+            <input class="box" type="password" name="password" 
+            id="password" placeholder="Password " required/><br> 
+
+            <input type="submit" id="submitDetails"  
+            name="submitDetails" value="Login" /><br> 
+                      
+            </form> 
+                      
+        </div>    
+                  
+        <div class="col-md-3"> 
+        </div> 
+                  
+    </div> 
+    </div> 
+
+    <div class="footer">
+            <p>Copyrights reserved</p>
+          </div>
+</body> 
+</html>

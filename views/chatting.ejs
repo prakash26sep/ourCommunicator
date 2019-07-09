@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Chat</title>
+   
+        <!--Css File's location in public folder-->
+        <link rel="stylesheet" type="text/css" href="/style.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+            <div class="header">
+
+                    <a href="#default" class="logo">Chat here</a>
+                    <div class="header-right">
+                      <a href="/home">Main</a>
+                      <a class="active" href="/chat">Chat</a>
+                      <a href="/myPosts">My Posts</a>
+                      <a href="/contact">Contact</a>
+                      <a id="logout" href="/logout">Logout</a>
+                    </div>
+            </div>
+
+        <h1>Chat here</h1>
+
+        <div style="clear:both; margin-bottom: 100px">
+            <% var otherUser; var otherUserName;%>
+        
+        <% var count=0; chatdata.forEach(function(chat) {otherUser= chat.loggedUser; otherUserName= chat.loggedUserName; count++; if(chat.loggedUser == loggedUserId){%>
+
+            <div class="flex-containerMain" style="overflow: auto; flex-basis: 30%; background-color: rgb(128, 206, 206);background-image: url('/skyy.jpg'); float: right; height: 100px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
+                <div style="font-size:15px;  margin-top: 7px; font-family: 'Cardo', serif;">By: <%= chat.loggedUserName %></div>
+                <div class="flex-containerBottom" style="font-size:25px;  margin-top: 7px; font-family: 'Cardo', serif;"><div>&nbsp&nbsp&nbsp Message: <%=chat.message%></div> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <div style="font-size: 15px">Date: <%= chat.date %>&nbsp&nbsp&nbsp</div></div><br>
+            </div>
+            <%}else{%>
+                <div class="flex-containerMain" style="overflow: auto; flex-basis: 50%; background-image: url('/skyy.jpg'); float: left; height: 100px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
+                    <div style="font-size:15px;  margin-top: 7px; font-family: 'Cardo', serif;">By <%= chat.loggedUserName %></div>
+                    <div class="flex-containerBottom" style="font-size:25px;  margin-top: 7px; font-family: 'Cardo', serif;">&nbsp&nbsp&nbsp Message: <%=chat.message%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <div style="font-size: 15px">Date: <%= chat.date %>&nbsp&nbsp&nbsp</div></div><br>
+                </div>
+       <% }}) %>
+       <br>
+       
+       <%if(count == 0){ %>
+        <div class="flex-containerMain" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: 140px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
+            <div style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No chat messages yet. <br>Send a message to start!</div><br>
+        </div>
+        <% }%>
+
+        </div>
+
+        
+
+    <div class="flex-containerMain center" style="margin-top: 50px; clear: both ;flex-basis: 100px; background-image: url('/skyy.jpg'); height: 200px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
+        
+        <div style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;"><form action="/sendMessage" method="post">Enter Message<input type="text" name="message"><br><input type="submit" value="Send"></form></div><br>
+        
+    </div>
+
+
+       <div style="margin-top: 100px"></div>
+       <div style="margin-bottom: 100px"></div>
+       
+
+       <div class="footer" style="position: fixed">
+            <p>Copyrights reserved</p>
+          </div>
+            
+    </body>
+
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Welcome <%= name%> </title>
+   
+        <link rel="stylesheet" type="text/css" href="style.css"> 
+        
+        <style>
+                body{
+                    text-align: center;
+                }
+                .container{
+                    font-size: 24;
+                }
+                .footer{
+                    position: fixed;
+                }
+
+            </style>
+
+    </head>
+
+    <body>
+
+            <div class="header">
+
+                    <a href="#default" class="logo">Our Communicator</a>
+                    <div class="header-right">
+                      <a class="active" href="/home">Main</a>
+                      <a href="/chat">Chat</a>
+                      <a href="/myPosts">My Posts</a>
+                      <a href="/contact">Contact</a>
+                      <a id="logout" href="/logout">Logout</a>
+                    </div>
+            </div>
+
+        <h1>Hi <%= name %> welcome to portal</h1><br>
+        <h3>Select any choice to continue</h3><br><br>
+        <div class="container">
+            <a  href= "/home/addPost"><button style="height: 70px; width: 350px;" class="button button5">Add Post</button></a><br><br><br>
+            <a href="/home/readPost"><button  style="height: 70px; width: 350px;" class="button button5">Read Other Posts</button></a>
+    
+        </div> 
+
+        <div class="footer">
+                <p>Copyrights reserved </p>
+              </div>
+
+    </body>
+
+</html>

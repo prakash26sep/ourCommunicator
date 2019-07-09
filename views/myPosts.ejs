@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Posts</title>
+   
+        <!--Css File's location in public folder-->
+        <link rel="stylesheet" type="text/css" href="/style.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+            <div class="header">
+
+                    <a href="#default" class="logo">Our Communicator</a>
+                    <div class="header-right">
+                      <a href="/home">Main</a>
+                      <a href="/chat">Chat</a>
+                      <a class="active" href="/myPosts">My Posts</a>
+                      <a href="/contact">Contact</a>
+                      <a id="logout" href="/logout">Logout</a>
+                    </div>
+            </div>
+
+            <h1>Your Posts</h1>
+        
+        <%var count=0; posst.forEach(function(possta) { if(possta.email == email ){ count++;%>
+
+            <div class="flex-containerMain centerPost" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: 344px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
+                <div style="margin-top: 7px; font-family: 'Cardo', serif;">User: You</div><br>
+
+                <div class="flex-containerMain" style="background-image: url('/images/foldedPaper.jpg') ; height: 240px; border-radius: 25px; margin: 0 8px 0 8px">
+                    <div style="flex-basis: 200px; margin-top: 10px; font-size: 40px; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
+                    <!--<div><%=  possta.email %></div>-->
+                    <div class="flex-containerBottom" style="margin-bottom: 4px;">
+
+                        <% var viewProfile="/viewProfile/" +possta.email%>
+
+                            <div style="flex-basis: 900px; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">By <a href=<%= viewProfile %> ><%=  possta.email %></a></div>
+                            <div style="margin-left: 120px; font-family: 'Cardo', serif;">Post Created at: <%=  possta.date %></div>
+
+                    </div>
+                </div>
+
+                <div >
+
+                    
+                <div class="flex-containerBottom" style="margin-top: 3px;">
+
+                    <div style=" text-align: center; margin-left: 40px; margin-top: 10px; margin-bottom: 5px;">
+                        <span id="value<%=possta._id%>"><%=possta.wows %></span> Wows 
+                    
+                    </div>
+
+                    
+                </div>
+
+            </div>
+        
+       <% }}) %>
+
+       <%if(count == 0){ %>
+        <div class="flex-containerMain" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: 140px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
+            <div style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No posts Posted by You!</div><br>
+        </div>
+        <% }%>
+
+
+       <div style="margin-bottom: 100px"></div>
+
+       <div class="footer" style="position: fixed">
+            <p>Copyrights reserved</p>
+          </div>
+            
+    </body>
+
+</html>
+
+<script>
+    
+
+    function wowClicker(useit){
+
+        var idStore= `value${useit.id}`;
+        var formId= `form${useit.id}`;
+        var str;
+
+        if(useit.innerHTML == "Wow"){
+
+            var wowValue= parseInt(document.getElementById(`${idStore}`).innerHTML);
+            wowValue+= 1;
+            document.getElementById(`${idStore}`).innerHTML= wowValue;
+            useit.innerHTML= "UnWow";
+            
+            str= document.getElementById(`${formId}`).action;
+            str = str.slice(0, -3);
+            str+= "add";
+            document.getElementById(`${formId}`).action= str;
+        }
+        else{
+            var wowValuee= parseInt(document.getElementById(`${idStore}`).innerHTML);
+            wowValuee-= 1;
+            document.getElementById(`${idStore}`).innerHTML= wowValuee;
+            useit.innerHTML= "Wow";
+
+            str= document.getElementById(`${formId}`).action;
+            str = str.slice(0, -3);
+            str+= "sub";
+            document.getElementById(`${formId}`).action= str;
+            
+        }
+    
+    }
+
+</script>
