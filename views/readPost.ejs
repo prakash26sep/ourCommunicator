@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <div >
+                <div>
 
                     
                 <div  style="margin-top: 10px;" class="flex-container">
@@ -73,7 +73,9 @@
                         <button style="margin-top:-10px; margin-left: 20px; " class="button button4" id="<%=possta._id%>" onclick="wowClicker(this)">Wow</button></form>
                     </div><div style="width: 70%";></div>
 
-                    <div style="float: right; text-align: right; margin-right: 40px;"><button id="<%=possta._id%>com" onclick="loadComments(this)" class="button button2">Show Comments</button></div> 
+                    <% var commCount=0; possta.comments.forEach(function(comments){ commCount++;});%>
+
+                    <div style="float: right; text-align: right; margin-right: 40px;"><%=commCount%> Comments <button id="<%=possta._id%>com" onclick="loadComments(this)" class="button button2">Show Comments</button></div> 
                 </div>
 
             </div>
@@ -88,20 +90,27 @@
                         <div style="margin-left: 120px; font-family: 'Cardo', serif;">at: <%=comments.date %></div>
                     </div><hr>
                     <%});%>
+
+                    <%if(commCount == 0){%>
+                        <div class="flex-container" style="overflow: auto;" >
+                            <div style="flex-basis: 340px; text-align: center; margin-left: 25px; font-family: 'Cardo', serif;">No comments to show</a></div>
+                            
+                        </div><hr>
+                    <%}%>
+
                     
                     <div class="flex-containerBottom" style="justify-content: center;">    
                             <div style="flex-basis: 600px; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
                             <div style="margin-left: 70px; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
                     </div>
 
-
             </div>
         
        <% }}) %>
 
        <%if(count == 0){ %>
-        <div class="flex-containerMain" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: 140px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
-            <div class="centerPost" style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No posts Posted by others!</div><br>
+        <div><br><br>
+            <div class="centerPost" style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No posts Posted by Others!</div><br>
         </div>
         <% }%>
 
