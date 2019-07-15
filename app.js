@@ -425,9 +425,8 @@ app.post('/addPost', function(req,res){
             "name": req.session.name,
             "date": formatAMPM(),
             "wows": 0,
-            "comments":[
-                
-            ]
+            "comments":[],
+            "wowers":[]
         };
       
         db.collection('posts').insertOne(postDetails, function(err, collection){ 
@@ -455,10 +454,12 @@ app.post('/home/readPost/:id/:operator', function(req, res){
 
                 if(req.params.operator == "add"){
                     theUser.wows= parseInt(theUser.wows+ 1);
+                    theUser.wowers.push(req.session.email);
                     theUser.save();
                 }
                 if(req.params.operator == "sub"){
                     theUser.wows= parseInt(theUser.wows- 1);
+                    theUser.wowers.pull(req.session.email);
                     theUser.save();
                 }
                 
