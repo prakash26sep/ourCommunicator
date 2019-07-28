@@ -1,4 +1,6 @@
 //Using the various libraries installed using node package manager
+var PORT= process.env.PORT || 5000;
+
 var express=require("express"); 
 var bodyParser=require("body-parser"); 
 const path = require('path');
@@ -487,6 +489,6 @@ function formatAMPM() {
 
 
 //assigning the port
-app.listen(3000,function(){
+app.listen(PORT,function(){
     console.log("Live at Port 3000");
 });
