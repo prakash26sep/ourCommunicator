@@ -14,7 +14,7 @@ var postsBySchema = require('./models/posts');
 
 //Connecting it to the mongodb with DB 'gfg'
 mongoose.Promise= global.Promise;
-mongoose.connect('mongodb://localhost:27017/gfg', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://prakash26sep:tatasky1@ourcommmunicatordata-yoagc.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
 var db=mongoose.connection; 
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
