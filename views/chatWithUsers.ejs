@@ -27,6 +27,8 @@
                     </div>
             </div>
 
+        <%if(name!=null){%>
+
         <h1>Select User's profile to Start Chat</h1>
         
         <% var count=0; person.forEach(function(details) { if(details.email != email){ count++;%>
@@ -47,6 +49,11 @@
 
 
        <div style="margin-bottom: 100px"></div>
+
+       <%}else{%>
+        <div><script>window.document.location = "http://localhost:5000/login";</script>
+        </div>
+        <%}%>
 
        <div class="footer" style="position: fixed">
             <p>Copyrights reserved</p>
