@@ -28,6 +28,10 @@
             </div>
  
             <br><br>
+
+            <%if(email!=null){%>
+
+
             <h1 style="text-align: center">Your Posts</h1>
 
 
@@ -105,6 +109,11 @@
 
 
        <div style="margin-bottom: 100px"></div>
+
+       <%}else{%>
+        <div><script>window.document.location = "http://localhost:5000/login";</script>
+        </div>
+        <%}%>
 
        <div class="footer" style="position: fixed">
             <p>Copyrights reserved</p>
