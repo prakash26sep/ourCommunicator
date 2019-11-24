@@ -30,6 +30,8 @@
             <br> 
             <br><br>
 
+            <%if(name!=null){%>
+
             <h1>Hi <%=name%>! Welcome to our Communicators Posts</h1>
             <br> 
             <!--<h1>Write a Post to the public portal</h1><br><br>-->
@@ -120,6 +122,11 @@
 
 
        <div style="margin-bottom: 100px"></div>
+
+       <%}else{%>
+        <div><script>window.document.location = "http://localhost:5000/login";</script>
+        </div>
+        <%}%>
 
        <div class="footer" style="position: fixed">
             <p>Copyrights reserved</p>
