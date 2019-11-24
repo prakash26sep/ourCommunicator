@@ -13,7 +13,12 @@ var postsBySchema = require('./models/posts');
 
 
 //Connecting it to the mongodb with DB 'gfg'
-mongoose.Promise= global.Promise;
+//mongoose.Promise= global.Promise;
+//--The link below can be used for local host mongodb database use
+//mongodb://localhost:27017/gfg
+
+//currently the DB is mongodb atlas which is online and to change something go to 
+//
 mongoose.connect('mongodb+srv://prakash26sep:tatasky1@ourcommmunicatordata-yoagc.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
 var db=mongoose.connection; 
 db.on('error', console.log.bind(console, "connection error")); 
@@ -46,6 +51,11 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
+app.use(function(req, res, next) {
+    res.locals.user = req.session.user;
+    next();
+  });
 
 
 //The root route
@@ -133,7 +143,7 @@ app.post('/log_in', function(req,res){
             db.collection('details').find(nameChecker).project({"name": 1, "_id": 0}).toArray( function(err, nameByEmail){ 
                 console.log('Inside name checker');
                 if(err) throw err;
-                console.log(nameByEmail[0].name);
+                //console.log(nameByEmail[0].name);
                 req.session.name= nameByEmail[0].name;
                 
                 nameUserr= nameByEmail[0].name;
@@ -490,5 +500,5 @@ function formatAMPM() {
 
 //assigning the port
 app.listen(PORT,function(){
-    console.log("Live at Port 3000");
+    console.log("Live at Port 5000");
 });
