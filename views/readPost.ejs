@@ -49,7 +49,7 @@
 
         <% var count=0; posst.forEach(function(possta) { if(possta.email != email ){ count++;%>
 
-            <div class="flex-containerMain centerPost" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: 360px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
+            <div class="flex-containerMain centerPost" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px;">
                 <div style="margin-top: 7px; font-family: 'Cardo', serif;">User: <%= possta.name %></div><br>
 
                 <div class="flex-containerMain" style="background-image: url('/images/foldedPaper.jpg') ; height: 240px; border-radius: 25px; margin: 0 8px 0 8px">
@@ -84,7 +84,7 @@
 
                 </div>
 
-                <div class="flex-container" id="commentDiv<%=possta._id%>"style="margin-bottom: 4px; height: auto; display: none; border: 5px solid rgb(111, 186, 236); border-radius: 25px; margin: 2px 8px 0 8px">
+                <div class="flex-container" id="commentDiv<%=possta._id%>"style="margin-bottom: 4px; height: auto; display: none; border: 5px solid rgb(111, 186, 236); border-radius: 25px; margin: 2px 8px 0 8px; overflow: auto">
 
                     <% possta.comments.forEach(function(comments){ %>
 
@@ -102,6 +102,7 @@
                         </div><hr>
                     <%}%>
 
+                    
                     
                     <div class="flex-containerBottom" style="justify-content: center;">    
                             <div style="flex-basis: 600px; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
@@ -124,7 +125,7 @@
        <div style="margin-bottom: 100px"></div>
 
        <%}else{%>
-        <div><script>window.document.location = "http://our-communicator.herokuapp.com/login";</script>
+        <div><script>window.document.location = "http://localhost:5000/login";</script>
         </div>
         <%}%>
 
