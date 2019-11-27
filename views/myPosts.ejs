@@ -19,38 +19,25 @@
 
                     <a href="#default" class="logo">Our Communicator</a>
                     <div class="header-right">
-                      <a class="active" href="/home">Main</a>
+                      <a href="/home">Main</a>
                       <a href="/chat">Chat</a>
-                      <a href="/myPosts">My Posts</a>
+                      <a class="active" href="/myPosts">My Posts</a>
+                      <a href="/viewProfile/<%=email%>">My Profile</a>
                       <a href="/contact">Contact</a>
                       <a id="logout" href="/logout">Logout</a>
                     </div>
             </div>
-
-            <br> 
+ 
             <br><br>
-
-            <%if(name!=null){%>
-
-            <h1>Hi <%=name%>! Welcome to our Communicators Posts</h1>
-            <br> 
-            <!--<h1>Write a Post to the public portal</h1><br><br>-->
-          
-            <div style="width: 800px;" class="center"> 
-
-                <form action="/addPost" method="post">
-                    Your Post Here<br> <input id="postStyling" type="text" name="addPost" id="addPost" required/>
-                    <div class="row">
-                    <br><br><input type="submit" name="submitPost" id="submitPost" /></div>
-                </form>
-            
-            </div> 
+            <h1 style="text-align: center">Your Posts</h1>
 
 
-        <% var count=0; posst.forEach(function(possta) { if(possta.email != email ){ count++;%>
 
-            <div class="flex-containerMain centerPost" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px;">
-                <div style="margin-top: 7px; font-family: 'Cardo', serif;">User: <%= possta.name %></div><br>
+
+        <% var count=0; posst.forEach(function(possta) { if(possta.email == email ){ count++;%>
+
+            <div class="flex-containerMain centerPost" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: 360px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
+                <div style="margin-top: 7px; font-family: 'Cardo', serif;">User: You</div><br>
 
                 <div class="flex-containerMain" style="background-image: url('/images/foldedPaper.jpg') ; height: 240px; border-radius: 25px; margin: 0 8px 0 8px">
                     <div style="flex-basis: 200px; margin-top: 10px; font-size: 40px; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
@@ -67,24 +54,21 @@
 
                 <div>
 
-                        <%var wowerCount=0; possta.wowers.forEach(function(checkWower){if(checkWower == email){wowerCount++;} } )%>
+                    
+                <div  style="margin-top: 10px;" class="flex-container">
 
-                            
-                        <div  style="margin-top: 10px;" class="flex-container">
+                    <div  style=" float: left; text-align: center; margin-left: 20px; margin-top: 10px;">
+                        <span style=" float: left;" id="value<%=possta._id%>"><%=possta.wows %></span>&nbsp Wows
+                    </div><div style="width: 70%";></div>
 
-                            <div  style=" float: left; text-align: center; margin-left: 20px; margin-top: 10px;">
-                                <span style=" float: left;" id="value<%=possta._id%>"><%=possta.wows %></span>&nbsp Wows<form id="form<%=possta._id%>" style="float: right" action="/home/readPost/<%= possta._id %>/add" method="post">
-                                <button style="margin-top:-10px; margin-left: 20px; " class="button button4" id="<%=possta._id%>" onclick="wowClicker(this)"><%if(wowerCount == 0){%>Wow<%}else{%>Unwow<%}%></button></form>
-                            </div><div style="width: 70%";></div>
+                    <% var commCount=0; possta.comments.forEach(function(comments){ commCount++;});%>
 
-                            <% var commCount=0; possta.comments.forEach(function(comments){ commCount++;});%>
-
-                            <div style="float: right; text-align: right; margin-right: 40px;"><%=commCount%> Comments <button id="<%=possta._id%>com" onclick="loadComments(this)" class="button button2">Show Comments</button></div> 
-                        </div>
-
+                    <div style="float: right; text-align: right; margin-right: 40px;"><%=commCount%> Comments <button id="<%=possta._id%>com" onclick="loadComments(this)" class="button button2">Show Comments</button></div> 
                 </div>
 
-                <div class="flex-container" id="commentDiv<%=possta._id%>"style="margin-bottom: 4px; height: auto; display: none; border: 5px solid rgb(111, 186, 236); border-radius: 25px; margin: 2px 8px 0 8px; overflow: auto">
+            </div>
+
+            <div class="flex-container" id="commentDiv<%=possta._id%>"style="margin-bottom: 4px; height: auto; display: none; border: 5px solid rgb(111, 186, 236); border-radius: 25px; margin: 2px 8px 0 8px">
 
                     <% possta.comments.forEach(function(comments){ %>
 
@@ -103,31 +87,24 @@
                     <%}%>
 
                     
-                    
                     <div class="flex-containerBottom" style="justify-content: center;">    
                             <div style="flex-basis: 600px; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
-                            <div style="margin-left: 70px; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
+                            <div style="margin-left: 70px; font-family: 'Cardo', serif;"><input type="submit" value="Reply" id="comment<%=possta._id%>"/></form></div>
                     </div>
-            
-                </div>
+
             </div>
         
        <% }}) %>
 
-       <%if(count == 0){ %>
+       <% if(count == 0){ %>
         <div><br><br>
-            <div class="centerPost" style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No posts Posted by Others!</div><br>
+            <div class="centerPost" style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No posts Posted by You!</div><br>
         </div>
-        <% }%>
+        <% } %>
 
 
 
        <div style="margin-bottom: 100px"></div>
-
-       <%}else{%>
-        <div><script>window.document.location = "http://localhost:5000/login";</script>
-        </div>
-        <%}%>
 
        <div class="footer" style="position: fixed">
             <p>Copyrights reserved</p>
@@ -140,40 +117,6 @@
 <script>
     
 
-    function wowClicker(useit){
-
-        var idStore= `value${useit.id}`;
-        var formId= `form${useit.id}`;
-        var str;
-
-        if(useit.innerHTML == "Wow"){
-
-            var wowValue= parseInt(document.getElementById(`${idStore}`).innerHTML);
-            wowValue+= 1;
-            document.getElementById(`${idStore}`).innerHTML= wowValue;
-            useit.innerHTML= "Unwow";
-            
-            str= document.getElementById(`${formId}`).action;
-            str = str.slice(0, -3);
-            str+= "add";
-            document.getElementById(`${formId}`).action= str;
-        }
-
-        else{
-            var wowValuee= parseInt(document.getElementById(`${idStore}`).innerHTML);
-            wowValuee-= 1;
-            document.getElementById(`${idStore}`).innerHTML= wowValuee;
-            useit.innerHTML= "Wow";
-
-            str= document.getElementById(`${formId}`).action;
-            str = str.slice(0, -3);
-            str+= "sub";
-            document.getElementById(`${formId}`).action= str;
-            
-        }
-    
-    }
-
     function loadComments(comm){
         var idCommentStore= comm.id;
         var newStr = idCommentStore.slice(0, -3);
@@ -183,10 +126,7 @@
         if(buttonValuee== "Show Comments"){
             
             document.getElementById(commentId).style.display= "table";
-            document.getElementById(idCommentStore).innerHTML= "Hide Comments";
-
-            //var elem = document.getElementById(comm.id);
-            //elem.scrollTop = elem.scrollHeight;
+            document.getElementById(idCommentStore).innerHTML= "Hide Comments"
         }
         else{
             commentId= "commentDiv" +newStr;
@@ -194,8 +134,6 @@
             document.getElementById(idCommentStore).innerHTML= "Show Comments"
         }
 
-        
-
     }
-</script>
 
+</script>
