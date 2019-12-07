@@ -6,7 +6,8 @@ var postsBySchema = new Schema({
     name     : String,
     postText : String,
     email    : String,
-    wows: Number
+    wows: Number,
+    wowers: [String]
 });
 
 //mongoose.model("Comments", Comments);
