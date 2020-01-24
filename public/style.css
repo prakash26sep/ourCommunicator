@@ -173,5 +173,9 @@ body{
 	.center-texting{
 		text-align: center;
 	}
+
+	.texter{
+		font-size: 10vw;
+	}
 	
 }
