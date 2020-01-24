@@ -87,17 +87,7 @@ color: white;
 float: right;
 }
 
-@media screen and (max-width: 500px) {
-	.header a {
-		float: none;
-		display: block;
-		text-align: left;
-	}
-	
-	.header-right {
-		float: none;
-	}
-}
+
 .footer {
 	
 	left: 0;
@@ -117,7 +107,7 @@ float: right;
 
 .centerPost{
 	margin: auto;
-	width: 1150px;
+	width: 70%;
 	border: 3px solid green;
 	padding: 10px;
 }
@@ -145,4 +135,43 @@ float: right;
 }
 body{
 	background-color: #e4f9ff;
+}
+
+.someSpacess{
+	display: flex;
+	flex-basis: 40%;
+}
+
+@media screen and (max-width: 500px) {
+	.header a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	
+	.header-right {
+		float: none;
+	}
+	body{
+		padding: 0.03%;
+	  }
+
+	.padding-side{
+		margin: 0.05%;
+	}
+
+	.flex-containerBottom1 {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.flex-containerBottom2{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.center-texting{
+		text-align: center;
+	}
+	
 }

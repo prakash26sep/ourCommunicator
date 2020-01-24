@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Posts</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
    
         <!--Css File's location in public folder-->
         <link rel="stylesheet" type="text/css" href="/style.css"> 
@@ -36,7 +38,7 @@
             <br> 
             <!--<h1>Write a Post to the public portal</h1><br><br>-->
           
-            <div style="width: 800px;" class="center"> 
+            <div style="width: 80%;" class="center"> 
 
                 <form action="/addPost" method="post">
                     Your Post Here<br> <input id="postStyling" type="text" name="addPost" id="addPost" required/>
@@ -49,18 +51,18 @@
 
         <% var count=0; posst.reverse(); posst.forEach(function(possta) { if(possta.email != email ){ count++;%>
 
-            <div class="flex-containerMain centerPost" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px;">
+            <div class="flex-containerMain centerPost" style="flex-basis: 10%; background-image: url('/images/skyy.jpg') ;height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px;">
                 <div style="margin-top: 7px; font-family: 'Cardo', serif;">User: <%= possta.name %></div><br>
 
                 <div class="flex-containerMain" style="background-image: url('/images/foldedPaper.jpg') ; height: 240px; border-radius: 25px; margin: 0 8px 0 8px">
-                    <div style="flex-basis: 200px; margin-top: 10px; font-size: 40px; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
+                    <div style="flex-basis: 70%; margin-top: 1%; font-size: 40px; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
                     <!--<div><%=  possta.email %></div>-->
-                    <div class="flex-containerBottom" style="margin-bottom: 4px;">
+                    <div class="flex-containerBottom flex-containerBottom2 " style="margin-bottom: 4px;">
 
                         <% var viewProfile="/viewProfile/" +possta.email%>
 
-                            <div style="flex-basis: 900px; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">By <a href=<%= viewProfile %> ><%=  possta.email %></a></div>
-                            <div style="margin-left: 120px; font-family: 'Cardo', serif;">Post Created at: <%=  possta.date %></div>
+                            <div style="flex-basis: 50%; text-align: left; margin-left: 5%; font-family: 'Cardo', serif;">By <a href=<%= viewProfile %> ><%=  possta.email %></a></div>
+                            <div style="margin-left: 10%; font-family: 'Cardo', serif;">Post Created at: <%=  possta.date %></div>
 
                     </div>
                 </div>
@@ -89,9 +91,9 @@
                     <% possta.comments.forEach(function(comments){ %>
 
                     <div class="flex-containerBottom" style="overflow: auto;" >
-                        <div style="flex-basis: 340px; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">By <a href="/viewProfile/<%=comments.email%>"><%if(comments.email == email){%>You<%}else{%><%=comments.name%><%}%></a></div>
-                        <div style="flex-basis: 400px; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">Comment : <%=comments.comment%></div>
-                        <div style="margin-left: 120px; font-family: 'Cardo', serif;">at: <%=comments.date %></div>
+                        <div style="flex-basis: 15%; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">By <a href="/viewProfile/<%=comments.email%>"><%if(comments.email == email){%>You<%}else{%><%=comments.name%><%}%></a></div>
+                        <div style="flex-basis: 15%; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">Comment : <%=comments.comment%></div>
+                        <div style="margin-left: 15%; font-family: 'Cardo', serif;">at: <%=comments.date %></div>
                     </div><hr>
                     <%});%>
 
@@ -105,8 +107,8 @@
                     
                     
                     <div class="flex-containerBottom" style="justify-content: center;">    
-                            <div style="flex-basis: 600px; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
-                            <div style="margin-left: 70px; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
+                            <div style="flex-basis: 40%; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
+                            <div style="margin-left: 0.04%; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
                     </div>
             
                 </div>
@@ -119,8 +121,6 @@
             <div class="centerPost" style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No posts Posted by Others!</div><br>
         </div>
         <% }%>
-
-
 
        <div style="margin-bottom: 100px"></div>
 

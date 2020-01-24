@@ -19,7 +19,7 @@ var postsBySchema = require('./models/posts');
 
 //currently the DB is mongodb atlas which is online and to change something go to 
 //
-mongoose.connect('mongodb+srv://prakash26sep:tatasky1@ourcommmunicatordata-yoagc.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/persondatamern', {useNewUrlParser: true}).catch((error) => { console.log(error); });;
 var db=mongoose.connection; 
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
