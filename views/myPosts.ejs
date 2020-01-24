@@ -45,7 +45,7 @@
                 <div style="margin-top: 7px; font-family: 'Cardo', serif;">User: You</div><br>
 
                 <div class="flex-containerMain" style="background-image: url('/images/foldedPaper.jpg') ; height: 240px; border-radius: 25px; margin: 0 8px 0 8px">
-                    <div style="flex-basis: 70%; margin-top: 1%; font-size: 40px; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
+                    <div style="flex-basis: 70%; margin-top: 1%; font-size: 4.5vw; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
                     <!--<div><%=  possta.email %></div>-->
                     <div class="flex-containerBottom flex-containerBottom1" style="margin-bottom: 4px;">
 
@@ -77,7 +77,7 @@
 
                     <% possta.comments.forEach(function(comments){ %>
 
-                    <div class="flex-containerBottom" style="overflow: auto;" >
+                    <div class="flex-containerBottom padding-right" style="overflow: auto;" >
                         <div style="flex-basis: 15%; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">By <a href="/viewProfile/<%=comments.email%>"><%if(comments.email == email){%>You<%}else{%><%=comments.name%><%}%></a></div>
                         <div style="flex-basis: 15%; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">Comment : <%=comments.comment%></div>
                         <div style="margin-left: 15%; font-family: 'Cardo', serif;">at: <%=comments.date %></div>
