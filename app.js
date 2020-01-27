@@ -24,7 +24,7 @@ if(process.env.PORT === undefined){
     dbString= "mongodb://localhost:27017/persondatamern";
 }
 else{
-    dbString= "mongodb+srv://prakash26sep:tatasky1@cluster0-edocr.mongodb.net/test?retryWrites=true&w=majority";
+    dbString= "mongodb+srv://prakash26sep:tatasky1@ourcommmunicatordata-yoagc.mongodb.net/test?retryWrites=true&w=majority";
 }
 //
 mongoose.connect(dbString, {useNewUrlParser: true}).catch((error) => { console.log(error); });;
