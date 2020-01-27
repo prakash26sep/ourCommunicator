@@ -55,7 +55,7 @@
                 <div style="margin-top: 7px; font-family: 'Cardo', serif;">User: <%= possta.name %></div><br>
 
                 <div class="flex-containerMain" style="background-image: url('/images/foldedPaper.jpg') ; height: 240px; border-radius: 25px; margin: 0 8px 0 8px">
-                    <div class="texter" style="flex-basis: 70%; margin-top: 1%; font-size: 4.5vw; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
+                    <div class="texter" style="flex-basis: 70%; margin-top: 1%; font-size: 40px; font-family: 'Homemade Apple', cursive;"  ><%=  possta.postText %></div>
                     <!--<div><%=  possta.email %></div>-->
                     <div class="flex-containerBottom flex-containerBottom2 " style="margin-bottom: 4px;">
 
@@ -91,9 +91,9 @@
                     <% possta.comments.forEach(function(comments){ %>
 
                     <div class="flex-containerBottom" style="overflow: auto;" >
-                        <div style="flex-basis: 15%; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">By <a href="/viewProfile/<%=comments.email%>"><%if(comments.email == email){%>You<%}else{%><%=comments.name%><%}%></a></div>
-                        <div style="flex-basis: 15%; text-align: left; margin-left: 25px; font-family: 'Cardo', serif;">Comment : <%=comments.comment%></div>
-                        <div style="margin-left: 15%; font-family: 'Cardo', serif;">at: <%=comments.date %></div>
+                        <div style="margin-left: 5% ;flex-basis: 25%; text-align: left;  font-family: 'Cardo', serif;">By <a href="/viewProfile/<%=comments.email%>"><%if(comments.email == email){%>You<%}else{%><%=comments.name%><%}%></a></div>
+                        <div style="flex-basis: 10%;margin-left: 10%; text-align: left; font-family: 'Cardo', serif;">Comment : <%=comments.comment%></div>
+                        <div style="margin-left: 15%;margin-right: 5%; font-family: 'Cardo', serif;">at: <%=comments.date %></div>
                     </div><hr>
                     <%});%>
 
@@ -107,8 +107,8 @@
                     
                     
                     <div class="flex-containerBottom" style="justify-content: center;">    
-                            <div style="flex-basis: 40%; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
-                            <div style="margin-left: 0.04%; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
+                            <div style="flex-basis: 40%; margin-left: 4%; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
+                            <div style="margin-left: 0.04%;margin-right: 4%; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
                     </div>
             
                 </div>

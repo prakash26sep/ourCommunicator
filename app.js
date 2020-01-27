@@ -18,8 +18,16 @@ var postsBySchema = require('./models/posts');
 //mongodb://localhost:27017/gfg
 
 //currently the DB is mongodb atlas which is online and to change something go to 
+
+var dbString;
+if(process.env.PORT === undefined){
+    dbString= "mongodb://localhost:27017/persondatamern";
+}
+else{
+    dbString= "mongodb+srv://prakash26sep:tatasky1@cluster0-edocr.mongodb.net/test?retryWrites=true&w=majority";
+}
 //
-mongoose.connect('mongodb://localhost:27017/persondatamern', {useNewUrlParser: true}).catch((error) => { console.log(error); });;
+mongoose.connect(dbString, {useNewUrlParser: true}).catch((error) => { console.log(error); });;
 var db=mongoose.connection; 
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
