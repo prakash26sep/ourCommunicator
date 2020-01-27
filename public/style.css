@@ -142,6 +142,10 @@ body{
 	flex-basis: 40%;
 }
 
+.texter{
+	font-size: 40px;
+}
+
 @media screen and (max-width: 500px) {
 	.header a {
 		float: none;
