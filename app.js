@@ -461,6 +461,13 @@ app.post('/addPost', function(req,res){
         
 }); 
 
+app.get('*', (req, res) =>{
+    //res.send('Page Not found 404');
+    res.render('pageNotFound', {
+        
+    });
+}
+ );
 
 //Changing the value of Wow to DB
 app.post('/home/readPost/:id/:operator', function(req, res){
