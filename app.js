@@ -27,7 +27,7 @@ else{
     dbString= "mongodb+srv://prakash26sep:tatasky1@ourcommmunicatordata-yoagc.mongodb.net/test?retryWrites=true&w=majority";
 }
 //
-mongoose.connect(dbString, {useNewUrlParser: true}).catch((error) => { console.log(error); });;
+mongoose.connect(dbString, {useNewUrlParser: true, useUnifiedTopology: true }).catch((error) => { console.log(error); });;
 var db=mongoose.connection; 
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
