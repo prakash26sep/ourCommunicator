@@ -40,7 +40,7 @@
         
         <% var count=0; chatdata.forEach(function(chat) {otherUser= chat.loggedUser; otherUserName= chat.loggedUserName; count++; if(chat.loggedUser == loggedUserId){%>
 
-            <div class="flex-containerMain sizingOfChatBoxes" style="overflow: auto; margin-right:3%; margin-left:20%; flex-basis:50%; background-color: rgb(128, 206, 206); height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
+            <div class="flex-containerMain sizingOfChatBoxes somespaceClass" style="overflow: auto; margin-right:3%; margin-left:20%; flex-basis:50%; background-color: rgb(128, 206, 206); height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
                 <div style="font-size:15px;  margin-top: 7px; font-family: 'Cardo', serif;">By: <%= chat.loggedUserName %></div>
                 <div class="flex-containerBottom columnAndRow" style="margin-left: 4%; margin-right: 4%; font-size:25px;  margin-top: 7px; font-family: 'Cardo', serif;">
                     
@@ -60,8 +60,8 @@
                     </div><br>
                 </div>
        <% }}) %>
-       <br>
        
+       <br>
        <%if(count == 0){ %>
         <div class="flex-containerMain" style="flex-basis: 100px; background-image: url('/images/skyy.jpg') ;height: 140px; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 100px">
             <div style="font-size:30px;  margin-top: 7px; font-family: 'Cardo', serif;">No chat messages yet. <br>Send a message to start!</div><br>

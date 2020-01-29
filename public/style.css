@@ -153,6 +153,10 @@ body{
 	justify-content: space-between;
 }
 
+.somespaceClass{
+	margin-right: 3%;
+}
+
 @media screen and (max-width: 500px) {
 	.header a {
 		float: none;
@@ -213,6 +217,10 @@ body{
 
 	.sizingOfChatBoxes{
 		width: 80%;
+	}
+
+	.somespaceClass{
+		margin-right: 3%;
 	}
 	
 	
