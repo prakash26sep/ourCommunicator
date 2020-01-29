@@ -173,7 +173,7 @@ body{
 
 	.flex-containerBottom {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: space-around;
 	}
 
@@ -214,5 +214,6 @@ body{
 	.sizingOfChatBoxes{
 		width: 80%;
 	}
+	
 	
 }
