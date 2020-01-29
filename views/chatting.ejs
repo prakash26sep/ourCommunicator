@@ -35,25 +35,24 @@
 
         <h1>Chat here</h1>
 
-        <div style="clear:both; margin-bottom: 100px; display: flex; flex-direction: column; flex-basis: 70%;">
+        <div style="clear:both; margin-bottom: 100px; display: flex; flex-direction: column; ">
             <% var otherUser; var otherUserName;%>
         
         <% var count=0; chatdata.forEach(function(chat) {otherUser= chat.loggedUser; otherUserName= chat.loggedUserName; count++; if(chat.loggedUser == loggedUserId){%>
 
-            <div class="flex-containerMain" style="overflow: auto; flex-basis: 50%; background-color: rgb(128, 206, 206);background-image: url('/skyy.jpg'); float: right; height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
+            <div class="flex-containerMain sizingOfChatBoxes" style="overflow: auto; margin-right:3%; margin-left:20%; flex-basis: 50%; background-color: rgb(128, 206, 206);background-image: url('/skyy.jpg'); float: right; height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
                 <div style="font-size:15px;  margin-top: 7px; font-family: 'Cardo', serif;">By: <%= chat.loggedUserName %></div>
-                <div style="flex-basis: 20%;"></div>
-                <div class="flex-containerBottom " style="font-size:25px;  margin-top: 7px; font-family: 'Cardo', serif;">
+                <div class="flex-containerBottom columnAndRow" style="margin-left: 4%; margin-right: 4%; font-size:25px;  margin-top: 7px; font-family: 'Cardo', serif;">
                     
-                    <div class="someSpacess">&nbsp&nbsp&nbsp Message: <%=chat.message%></div> 
+                    <div class="someSpacess">Message: <%=chat.message%></div> 
                         <div style="flex-basis: 40%;"></div>
-                    <div style="font-size: 15px">Date: <%= chat.date %>&nbsp&nbsp&nbsp</div>
+                    <div style="font-size: 15px">Date: <%= chat.date %></div>
                 </div><br>
             </div>
             <%}else{%>
-                <div class="flex-containerMain" style="overflow: auto; flex-basis: 50%; background-image: url('/skyy.jpg'); float: left; height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
+                <div class="flex-containerMain sizingOfChatBoxes" style="overflow: auto; margin-left:3%; margin-right:20%;  flex-basis: 50%; background-image: url('/skyy.jpg'); float: left; height: auto; border-radius: 25px; border: 5px solid rgb(111, 186, 236); margin-top: 20px; margin-bottom: 20px;">
                     <div style="font-size:15px;  margin-top: 7px; font-family: 'Cardo', serif;">By <%= chat.loggedUserName %></div>
-                    <div class="flex-containerBottom" style="font-size:25px;  margin-top: 7px; font-family: 'Cardo', serif;">
+                    <div class="flex-containerBottom columnAndRow" style="margin-left: 4%; margin-right: 4%; font-size:25px;  margin-top: 7px; font-family: 'Cardo', serif;">
                         <div class="someSpacess">&nbsp&nbsp&nbsp Message: <%=chat.message%></div> 
                             <div style="flex-basis: 40%;"></div>
                         <div style="font-size: 15px">Date: <%= chat.date %>&nbsp&nbsp&nbsp</div>

@@ -62,7 +62,7 @@
                         <% var viewProfile="/viewProfile/" +possta.email%>
 
                             <div style="flex-basis: 50%; text-align: left; margin-left: 5%; font-family: 'Cardo', serif;">By <a href=<%= viewProfile %> ><%=  possta.email %></a></div>
-                            <div style="margin-left: 10%; font-family: 'Cardo', serif;">Post Created at: <%=  possta.date %></div>
+                            <div style=" font-family: 'Cardo', serif; margin-right: 5%;" >Post Created at: <%=  possta.date %></div>
 
                     </div>
                 </div>
@@ -93,9 +93,9 @@
                     <% possta.comments.forEach(function(comments){ %>
 
                     <div class="flex-containerBottom flex-containerBottomComments" style="overflow: auto;" >
-                        <div style="flex-basis: 25%; text-align: left;  font-family: 'Cardo', serif;">By <a href="/viewProfile/<%=comments.email%>"><%if(comments.email == email){%>You<%}else{%><%=comments.name%><%}%></a></div>
+                        <div style="margin-left: 3%; flex-basis: 25%; text-align: left;  font-family: 'Cardo', serif;">By <a href="/viewProfile/<%=comments.email%>"><%if(comments.email == email){%>You<%}else{%><%=comments.name%><%}%></a></div>
                         <div style=" text-align: left; font-family: 'Cardo', serif;">Comment : <%=comments.comment%></div>
-                        <div style="font-family: 'Cardo', serif;">at: <%=comments.date %></div>
+                        <div style="font-family: 'Cardo', serif; margin-right: 3%;">at: <%=comments.date %></div>
                     </div><hr>
                     <%});%>
 
@@ -110,7 +110,7 @@
                     
                     <div class="flex-containerBottom" style="justify-content: center;">    
                             <div style="flex-basis: 40%; margin-left: 4%; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
-                            <div style="margin-left: 0.04%;margin-right: 4%; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
+                            <div style="margin-right: 4%; font-family: 'Cardo', serif;"><input type="submit" value="Comment" id="comment<%=possta._id%>"/></form></div>
                     </div>
             
                 </div>

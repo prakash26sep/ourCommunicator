@@ -51,8 +51,8 @@
 
                         <% var viewProfile="/viewProfile/" +possta.email%>
 
-                            <div class="center-texting" style="flex-basis: 50%; text-align: left; margin-left: 5%; font-family: 'Cardo', serif;">By <a href=<%= viewProfile %> ><%=  possta.email %></a></div>
-                            <div class="center-texting" style="margin-left: 10%; font-family: 'Cardo', serif;">Post Created at: <%=  possta.date %></div>
+                            <div class="center-texting" style=" margin-left: 5%; font-family: 'Cardo', serif;">By <a href=<%= viewProfile %> ><%=  possta.email %></a></div>
+                            <div class="center-texting" style="margin-right: 5%; font-family: 'Cardo', serif;">Post Created at: <%=  possta.date %></div>
 
                     </div>
                 </div>
@@ -86,15 +86,15 @@
 
                     <%if(commCount == 0){%>
                         <div class="flex-container" style="overflow: auto;" >
-                            <div style="flex-basis: 340px; text-align: center; margin-left: 25px; font-family: 'Cardo', serif;">No comments to show</a></div>
+                            <div style="flex-basis: 90%; text-align: center; margin-left: 25px; font-family: 'Cardo', serif;">No comments to show</a></div>
                             
                         </div><hr>
                     <%}%>
 
                     
                     <div class="flex-containerBottom" style="justify-content: center;">    
-                            <div style="flex-basis: 40%; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
-                            <div style="margin-left: 0.04%; font-family: 'Cardo', serif;"><input type="submit" value="Reply" id="comment<%=possta._id%>"/></form></div>
+                            <div style="margin-right: 4%;; flex-basis: 40%; font-family: 'Cardo', serif;"><form action="/home/comment/<%=possta._id%>" method="post"><input type="text" name="comment" required/></div>
+                            <div style="margin-right: 0.04%; font-family: 'Cardo', serif;"><input type="submit" value="Reply" id="comment<%=possta._id%>"/></form></div>
                     </div>
 
                 </div>
